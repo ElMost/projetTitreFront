@@ -1,0 +1,22 @@
+.engagementBanner {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding: 0 ;
+   position: relative;
+  overflow: hidden;
+    /* height: 200px; */
+}
+
+.engagement{
+    background-color: #e8e4d9;
+    margin: 0px auto 150px;
+    width: 92%;
+    padding: 10px;
+    font-size: larger;
+}
+
+.ulEngagement{
+    justify-content: space-evenly;
+
+}

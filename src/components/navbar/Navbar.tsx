@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../../assets/logo.png';
-import { NavLink , NavLinkProps} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const [navbar, setNavbar] = React.useState(false);
@@ -77,7 +77,7 @@ const Navbar = () => {
               <li className="w-full">
                 <NavLink
                   className="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-[#6D625C] text-[#684f0b] "
-                  to="/santelys"
+                  to="/a_propos"
                   // activeClassName="border-[#6D625C]"
                 >
                   Santélys

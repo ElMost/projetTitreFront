@@ -5,6 +5,7 @@ import Footer from './components/footer/Footer';
 import About from './pages/about/About';
 import Engagement from './pages/engagement/Engagement';
 import Home from './pages/home/Home';
+import Contact from './pages/contact/Contact';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
     <Routes>
        <Route path="/" element={<Home />} />
       {/* <Route path="devis" element={<Devis />} /> */}
-      {/* <Route path="contact" element={<Contact />} /> */}
+      <Route path="contact" element={<Contact />} />
       {/* <Route path="postuler" element={<Postuler />} /> */}
       <Route path="a_propos" element={<About />} />
       <Route path="engagement" element={<Engagement />} />

@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
-import { frequencyData } from '../../components/data/FrequenceData';
-import {  serviceData, serviceDataCheckboxItems } from '../../components/data/ServiceData';
-import { DevisData } from '../../components/interfaces/DevisData';
-import { CheckboxItem } from '../../components/interfaces/CheckboxItems';
+import { frequencyData } from '../../data/FrequenceData';
+import { serviceDataCheckboxItems, serviceData } from '../../data/ServiceData';
+import { CheckboxItem } from '../../interfaces/CheckboxItems';
+import { DevisData } from '../../interfaces/DevisData';
+// import { frequencyData } from '../../components/data/FrequenceData';
+// import {  serviceData, serviceDataCheckboxItems } from '../../components/data/ServiceData';
+// import { DevisData } from '../../components/interfaces/DevisData';
+// import { CheckboxItem } from '../../components/interfaces/CheckboxItems';
 import './Devis.css';
 
 

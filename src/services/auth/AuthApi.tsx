@@ -16,18 +16,6 @@ export function hasAuthenticated(): boolean {
 }
 
 
-export function DeleteUser(credentials: object): Promise<boolean> {
-  return axios
-    .post(`${process.env.REACT_APP_API_URL}auth/delete`, credentials, {
-      withCredentials: true,
-    })
-    .then(() => {
-      removeItem('token');
-      return true;
-    });
-}
-
-
 export function GetUser(): Promise<any> {
   const token = getItem('token');
   const config = {
@@ -39,6 +27,19 @@ export function GetUser(): Promise<any> {
   return axios
     .get(`${process.env.REACT_APP_API_URL}/user/find-by-token/${token}`, config)
     .then((response) => response);
+}
+
+
+export function register(credentials: object): Promise<boolean> {
+  return axios
+    .post(`${process.env.REACT_APP_API_URL}/user/register`, credentials, {
+      withCredentials: true,
+    })
+    .then((response) => response.data.token)
+    .then((token) => {
+      addItem('token', token);
+      return true;
+    });
 }
 
 
@@ -54,17 +55,6 @@ export function login(credentials: object): Promise<boolean> {
     });
 }
 
-export function register(credentials: object): Promise<boolean> {
-  return axios
-    .post(`${process.env.REACT_APP_API_URL}/user/register`, credentials, {
-      withCredentials: true,
-    })
-    .then((response) => response.data.token)
-    .then((token) => {
-      addItem('token', token);
-      return true;
-    });
-}
 
 
 export function logout(): Promise<String> {
@@ -80,6 +70,17 @@ export function logout(): Promise<String> {
 }
 
 
+export function DeleteUser(credentials: object): Promise<boolean> {
+  return axios
+    .post(`${process.env.REACT_APP_API_URL}auth/delete`, credentials, {
+      withCredentials: true,
+    })
+    .then(() => {
+      removeItem('token');
+      return true;
+    });
+}
+
 function tokenIsValid(token: string): boolean {
   const decoded: DecodedJWT = jwtDecode(token);
   const { exp: expiration } = decoded;
@@ -89,4 +90,12 @@ function tokenIsValid(token: string): boolean {
   }
 
   return false;
+}
+
+export async function updateUser (email:string, updateFields:any) : Promise<any> {
+  const response = await axios.put(`${process.env.REACT_APP_API_URL}/auth/update`, {
+    email,
+    updateFields
+  })
+  return response.data
 }

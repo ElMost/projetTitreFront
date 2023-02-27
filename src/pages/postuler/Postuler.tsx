@@ -144,7 +144,9 @@ const Postuler = () => {
             <div>
               <button
                 type="submit"
-                className="text-white bg-[#FF0101] hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 w-full"
+                // className="text-white bg-[#FF0101] hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 w-full"
+
+                className=" w-full px-8 py-2 uppercase rounded-full bg-blue-600 text-white font-semibold text-center block hover:bg-blue-500 focus:ring-opacity-80 cursor-pointer"
                 onClick={handleFormSubmit}
               >
                 Envoyer

@@ -4,51 +4,65 @@ import'./Contact.css';
 
 const Contact = () => {
     const [formData, setFormData] = React.useState({
-        from_name: '',
-        from_email: '',
-        message: '',
+        from_name: 'salem',
+        from_email: 'salem.dahmani345@gmail.com',
+        message: '12345 bla bla ',
     });
 
-         const [alertMessage, setAlertMessage] = useState('');
+      //   const [alertMessage, setAlertMessage] = useState('');
 
-          useEffect(() => {
+       /*    useEffect(() => {
             if (alertMessage !== '') {
               alert(alertMessage);
               setAlertMessage('');
             }
-          }, [alertMessage]);
+          }, [alertMessage]); */
 
            const handleSubmit = async (e: { preventDefault: () => void }) => {
              e.preventDefault();
-             const { from_name, from_email, message } = formData;
-             const templateParams = {
-               from_name,
-               from_email,
-               message,
-             };
-             try {
-               await emailjs.send(
-                 'service_si24wxk',
-                 'template_n1f96k8',
-                 templateParams,
-                 'cM4VdLxWyeoIM2VrF'
-               );
-               alert('Message envoyé !');
-             } catch (error) {
-               alert('Une erreur est survenue, veuillez réessayer');
-             }
+             
+        const { from_name, from_email, message } = formData;
 
-             setFormData({
-               from_name: '',
-               from_email: '',
-               message: '',
-             });
+        const emailTemplate = `
+  <html>
+    <body>
+      <h2>New message from website contact form:</h2>
+      <p><strong>Name:</strong> ${from_name}</p>
+      <p><strong>Email:</strong> ${from_email}</p>
+      <p><strong>Message:</strong> ${message}</p>
+    </body>
+  </html>
+`;
+
+        const templateParams = {
+          to_email: 'mosscmoi@gmail.com',
+          from_name,
+          from_email,
+          message,
+         emailTemplate,
+        };
+
+        try {
+          await emailjs.send(
+            'service_si24wxk',
+            'template_n1f96k8',
+            templateParams,
+            'cM4VdLxWyeoIM2VrF'
+          );
+          alert('Message envoyé !');
+        } catch (error) {
+          alert('Une erreur est survenue, veuillez réessayer');
+        }
+
+
+        
            };
 
             const handleChange = (e: {
                 target: { name: any; value: any };
                 }) => {
                     setFormData({ ...formData, [e.target.name]: e.target.value });
+                    console.log(formData);
                 };
 
 

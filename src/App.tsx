@@ -7,6 +7,7 @@ import Engagement from './pages/engagement/Engagement';
 import Home from './pages/home/Home';
 import Contact from './pages/contact/Contact';
 import Devis from './pages/devis/Devis';
+import Postuler from './pages/postuler/Postuler';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
        <Route path="/" element={<Home />} />
       <Route path="devis" element={<Devis />} />
       <Route path="contact" element={<Contact />} />
-      {/* <Route path="postuler" element={<Postuler />} /> */}
+      <Route path="postuler" element={<Postuler />} />
       <Route path="a_propos" element={<About />} />
       <Route path="engagement" element={<Engagement />} />
       

@@ -3,8 +3,8 @@ import './About.css';
 
 const About = () => {
   return (
-    <div className="m-10 mb-5 pb-5 about">
-      <h1 className="w-full mt-10 md:mt-0 md:ml-0  lg:text-3xl font-bold text-[#6D625C]">
+    <div className=" xs:w-10/12  m-2 lg:m-12 mb-5 pb-5 about">
+      <h1 className="w-full mt-10 md:mt-0 md:ml-0 lg:pb-5  lg:text-3xl font-bold text-[#6D625C]">
         Qui sommes-nous ?
       </h1>
 

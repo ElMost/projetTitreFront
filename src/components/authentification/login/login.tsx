@@ -7,7 +7,7 @@ import ResetPassowrdEmailModal from '../../modal/loadingModal/resetPasswordEmail
 import './Login.css';
 
 
-const login = () => {
+const Login = () => {
 
      const [isLoading, setIsLoading] = useState(false);
      const [isMotDePasseOublie, setisMotDePasseOublie] = useState(false);
@@ -47,7 +47,7 @@ const login = () => {
 
     setTimeout(async () => {
         try {
-            const response = await login();
+            const response = await Login();
              setIsAuthenticated(true);
 
             if (response) {
@@ -89,9 +89,15 @@ const login = () => {
                     value={user.email}
                     onChange={handleInputChange}
                     className={`shadow  rounded w-full py-2 px-3  text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline ${
-                      EmailVerifed === false
+                      user.email === ''
+                        ? 'border-gray-500 border-2'
+                        : EmailVerifed === false
                         ? 'border-red-500 border-2'
                         : 'border-green-500 border-2'
+
+                      // EmailVerifed === false
+                      //   ? 'border-red-500 border-2'
+                      //   : 'border-green-500 border-2'
                     }`}
                     placeholder="E-mail"
                   />
@@ -104,9 +110,15 @@ const login = () => {
                     value={user.password}
                     onChange={handleInputChange}
                     className={`shadow  rounded w-full py-2 px-3  text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline ${
-                      passVerifed === false
+                      user.password === ''
+                        ? 'border-gray-500 border-2'
+                        : passVerifed === false
                         ? 'border-red-500 border-2'
                         : 'border-green-500 border-2'
+                        
+                      // passVerifed === false
+                      //   ? 'border-red-500 border-2'
+                      //   : 'border-green-500 border-2'
                     }`}
                     placeholder="Mot de passe"
                   />
@@ -142,4 +154,4 @@ const login = () => {
 };
 
 
-export default login;
+export default Login;

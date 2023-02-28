@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { frequencyData } from '../../data/FrequenceData';
-import { serviceDataCheckboxItems, serviceData } from '../../data/ServiceData';
+import { serviceDataCheckboxItems, ServiceData } from '../../data/ServiceData';
 import { CheckboxItem } from '../../interfaces/CheckboxItems';
-import { DevisData } from '../../interfaces/DevisData';
+import { DevisData } from '../../interfaces/IDevisData';
 // import { frequencyData } from '../../components/data/FrequenceData';
 // import {  serviceData, serviceDataCheckboxItems } from '../../components/data/ServiceData';
 // import { DevisData } from '../../components/interfaces/DevisData';
@@ -32,7 +32,7 @@ const Devis = () => {
     };
 
      const getServiceType = (serviceName: any) => {
-    const service = serviceData.find((s) => s.nom === serviceName);
+    const service = ServiceData.find((s) => s.nom === serviceName);
     return service ? service.type : 'bug de type';
   };
 

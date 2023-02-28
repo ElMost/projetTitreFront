@@ -1,4 +1,4 @@
-export const serviceData = [
+export const ServiceData = [
   // defined serviceData with an array of objects
   { nom: 'Entretien au Domicile', type: 'Domicile' },
   { nom: 'Sortie', type: 'Domicile' },

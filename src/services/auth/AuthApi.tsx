@@ -81,6 +81,16 @@ export function DeleteUser(credentials: object): Promise<boolean> {
     });
 }
 
+
+export async function updateUser (email:string, updateFields:any) : Promise<any> {
+  const response = await axios.put(`${process.env.REACT_APP_API_URL}/auth/update`, {
+    email,
+    updateFields
+  })
+  return response.data
+}
+
+
 function tokenIsValid(token: string): boolean {
   const decoded: DecodedJWT = jwtDecode(token);
   const { exp: expiration } = decoded;
@@ -90,12 +100,4 @@ function tokenIsValid(token: string): boolean {
   }
 
   return false;
-}
-
-export async function updateUser (email:string, updateFields:any) : Promise<any> {
-  const response = await axios.put(`${process.env.REACT_APP_API_URL}/auth/update`, {
-    email,
-    updateFields
-  })
-  return response.data
 }

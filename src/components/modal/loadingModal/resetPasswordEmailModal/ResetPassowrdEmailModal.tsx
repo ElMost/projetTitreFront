@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IModalComponent } from '../../../interfaces/IModalComponent';
+import { IModalComponent } from '../../../../interfaces/IModalComponent';
 
 const ResetPassowrdEmailModal: React.FC<IModalComponent> = ({
   isShowed,

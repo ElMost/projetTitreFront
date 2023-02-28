@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../assets/logo.png';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../context/Auth';
 
-const Navbar = () => {
-    const [navbar, setNavbar] = React.useState(false);
+const NavBar = () => {
+  const [navbar, setNavbar] = React.useState(false);
+  const { isAuthenticated } = useContext(AuthContext);
   return (
     <nav className="top-0 w-full sticky bg-[#e8e4d9] shadow  z-10">
       <div className="w-full mx-auto lg:items-center lg:flex ">
@@ -111,24 +113,26 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className="w-full">
-                <NavLink
-                  className="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-[#6D625C] text-[#684f0b] "
-                  to="/connexion"
+                {isAuthenticated === false ? (
+                  <NavLink
+                    className="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-[#6D625C] text-[#684f0b] "
+                    to="/connexion"
 
-                  // activeClassName="border-[#6D625C]"
-                >
-                  Connexion
-                </NavLink>
+                    // activeClassName="border-[#6D625C]"
+                  >
+                    Connexion
+                  </NavLink>
+                ) : (
+                  <NavLink
+                    className="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-[#6D625C] text-[#684f0b] "
+                    to="/dashboard"
+                    // activeClassName="border-[#6D625C]"
+                  >
+                    Interface
+                  </NavLink>
+                )}
               </li>
-              <li className=" w-full">
-                <NavLink
-                  className="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-[#6D625C] text-[#684f0b] "
-                  to="/interface"
-                  // activeClassName="border-[#6D625C]"
-                >
-                  Interface
-                </NavLink>
-              </li>
+              {/* <li className=" w-full"></li> */}
             </ul>
           </div>
         </div>
@@ -137,4 +141,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavBar;

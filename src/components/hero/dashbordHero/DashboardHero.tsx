@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { logout } from '../../services/auth/AuthApi';
-import { removeItem } from '../../store/LocalStorage';
+import { logout } from '../../../services/auth/AuthApi';
+import { removeItem } from '../../../store/LocalStorage';
 // import { logout } from '../../services/auth/auth/AuthApi';
 // import { removeItem } from '../../services/auth/store/LocalStorage';
-import { AuthContext } from '../context/Auth';
+import { AuthContext } from '../../context/Auth';
 
-const Hero = () => {
+const DashboardHero = () => {
   const navigate = useNavigate();
   const Auth = React.useContext(AuthContext);
 
@@ -69,4 +69,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default DashboardHero;

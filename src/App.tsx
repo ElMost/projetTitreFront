@@ -29,13 +29,14 @@ function App() {
   });
 
   function updateIsAdmin(value: any) {
+    console.log(value);    
     setUser((prevState) => ({ ...prevState, isAdmin: value }));
   }
 
   useEffect(() => {
     if (isAuthenticated) {
       isUserAdmin().then((isAdmin) => {
-        setUser((user) => ({ ...user, isAdmin: isAdmin }));
+        setUser((user) => ({ ...user, isAdmin}));
       });
     }
   }, [isAuthenticated]);

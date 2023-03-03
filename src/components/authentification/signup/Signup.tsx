@@ -156,7 +156,7 @@ const Signup = () => {
                 <div className="mt-5 relative bottom-0">
                   <button
                     onClick={() => SignUpUser()}
-                    className=" w-full px-8 py-2 uppercase rounded-full bg-blue-600 text-white font-semibold text-center block hover:bg-blue-500 focus:ring-opacity-80 cursor-pointer"
+                    className=" w-full px-8 py-2 uppercase rounded bg-blue-600 text-white font-semibold text-center block hover:bg-blue-500 focus:ring-opacity-80 cursor-pointer"
                   >
                     Enregister
                   </button>

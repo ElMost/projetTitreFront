@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { AuthContext } from '../../components/context/Auth';
-import Hero from '../../components/hero/Hero';
+import Hero from '../../components/hero/dashbordHero/DashboardHero';
 import { DeleteAccount } from '../../components/modal/deleteAccount/DeleteAccount';
 import { GetUser, UpdateUser } from '../../services/auth/AuthApi';
 // import { GetUser, updateUser } from '../../services/auth/AuthApi';
@@ -27,18 +27,17 @@ export default function Profile() {
 
   async function getUser() {
     const result = await GetUser();
-    const userData ={
+    const userData = {
       nom: result.data.nom,
       prenom: result.data.prenom,
       email: result.data.email,
       isAdmin: result.data.isAdmin,
-    }
+    };
     setFormData(userData);
     Auth.setUser(userData);
     console.log(Auth.user);
     console.log(formData);
   }
-    
 
   const handleChange = (event: any) => {
     setFormData({
@@ -58,7 +57,6 @@ export default function Profile() {
       prenom: formData.prenom,
 
       email: formData.email,
-      
     }).then((e: any) => {
       console.log(e);
     });
@@ -78,9 +76,13 @@ export default function Profile() {
   return (
     <div className="container md:block">
       {showDeleteAccountModal ? (
-        <DeleteAccount isShowed={showModelfunction} data={undefined} updateReservations={function (data: any): void {
-          throw new Error('Function not implemented.');
-        } } />
+        <DeleteAccount
+          isShowed={showModelfunction}
+          data={undefined}
+          updateReservations={function (data: any): void {
+            throw new Error('Function not implemented.');
+          }}
+        />
       ) : null}
 
       <Hero />

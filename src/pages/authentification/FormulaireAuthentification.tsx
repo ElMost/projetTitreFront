@@ -1,5 +1,6 @@
 import React from 'react';
-import Login from '../../components/authentification/login/Login';
+import Login from '../../components/authentification/login/login';
+
 import Signup from '../../components/authentification/signup/Signup';
 
 const FormulaireAuthentification = () => {

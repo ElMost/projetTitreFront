@@ -1,4 +1,11 @@
 export interface IshowModalComponentModif {
-  loading: () => void;
+  isShowed: () => void;
+  data: any;
+  updateReservations: (data: any) => void;
+}
+
+export interface IshowModalComponentDeleteAccount {
+  isShowed: () => void;
   data: any;
 }
+

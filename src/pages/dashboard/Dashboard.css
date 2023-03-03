@@ -1,0 +1,9 @@
+.containerDashboard {
+margin-top: 5px;
+padding: 0px 0px 20px 0px;
+/* background: linear-gradient(to bottom, #fa9966, #fD5e62); */
+ background: linear-gradient(to bottom, #e8e4d9, #f3db98);
+margin-bottom: 150px;
+border-radius: 10px;
+
+}

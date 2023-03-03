@@ -73,9 +73,9 @@ const Postuler = () => {
   };
 
   return (
-    <div className=" flex-col justify-center items-center postuler">
-      <div className="grid grid-cols-1   space-x-10 h-full  lg:pl-60 lg:pr-60 md:pl-20 md:pr-20 mb-10">
-        <div className="flex flex-col  m-1 bg-[#e8e4d9] p-2">
+    <div className=" flex-col justify-center items-center postuler mt-5">
+      <div className="grid grid-cols-1   space-x-10 h-full  lg:pl-60 lg:pr-60 md:pl-20 md:pr-20 mb-10 ">
+        <div className="containerPostuler flex flex-col  m-1 bg-[#e8e4d9] p-2">
           <h1 className="text-xl mt-1 md:text-2xl lg:text-3xl font-bold text-[#6D625C]">
             Rejoindre <span className="text-[#007FF0]"> Santélys </span>
           </h1>{' '}

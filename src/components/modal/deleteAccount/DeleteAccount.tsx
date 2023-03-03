@@ -4,12 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { Iloading } from '../../../interfaces/Iloading';
 import { IshowModalComponentModif } from '../../../interfaces/IShowModalComponentModif';
 import { DeleteUser } from '../../../services/auth/AuthApi';
+// import { DeleteUser } from '../../../services/auth/auth/AuthApi';
 import { AuthContext } from '../../context/Auth';
 // import { IshowModalComponentRevision } from '../../../interfaces/IshowModalComponentRevision';
 // import { DeleteUser } from '../../../services/Auth/AuthApi';
 
 export const DeleteAccount: React.FC<IshowModalComponentModif> = ({
-  loading,
+  isShowed,
 }: IshowModalComponentModif) => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(true);
@@ -39,7 +40,7 @@ export const DeleteAccount: React.FC<IshowModalComponentModif> = ({
                   </h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                    onClick={() => loading()}
+                    onClick={() => isShowed()}
                   >
                     <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
                       ×
@@ -57,7 +58,7 @@ export const DeleteAccount: React.FC<IshowModalComponentModif> = ({
                   <button
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => loading()}
+                    onClick={() => isShowed()}
                   >
                     Close
                   </button>

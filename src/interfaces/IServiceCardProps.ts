@@ -1,4 +1,5 @@
 interface Service {
+  image: string | undefined;
   id: string;
   nomDesServices: string;
   date: string;

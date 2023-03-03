@@ -1,28 +1,27 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { login } from '../../../services/auth/AuthApi';
+// import { login } from '../../../services/auth/AuthApi';
 import { AuthContext } from '../../context/Auth';
 import { Loading } from '../../modal/loadingModal/Loading';
 import ResetPassowrdEmailModal from '../../modal/loadingModal/resetPasswordEmailModal/ResetPassowrdEmailModal';
 import './Login.css';
 
+// import { LoginFunction } from '../../../services/auth/auth/AuthApi';
 
 const Login = () => {
-
-     const [isLoading, setIsLoading] = useState(false);
-     const [isMotDePasseOublie, setisMotDePasseOublie] = useState(false);
-     const [EmailVerifed, setEmailVerifed] = useState(false);
-     const [passVerifed, setPassVerifed] = useState(false);
-     const { setIsAuthenticated } = useContext(AuthContext);
-     const Auth = useContext(AuthContext);
-     const navigate = useNavigate();
-     const [user, setUser] = useState({
-       email: '',
-       password: '',
-     });
-
-
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [isMotDePasseOublie, setisMotDePasseOublie] = useState(false);
+  const [EmailVerifed, setEmailVerifed] = useState(false);
+  const [passVerifed, setPassVerifed] = useState(false);
+  const { setIsAuthenticated } = useContext(AuthContext);
+  const Auth = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [user, setUser] = useState({
+    email: '',
+    password: '',
+  });
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUser({ ...user, [event.target.name]: event.target.value });
@@ -42,29 +41,29 @@ const Login = () => {
     setisMotDePasseOublie(!isMotDePasseOublie);
   };
 
- const SignInUser = async () => {
-   setIsLoading(!isLoading);
+  const SignInUser = async () => {
+    setIsLoading(!isLoading);
 
     setTimeout(async () => {
-        try {
-            const response = await Login();
-             setIsAuthenticated(true);
+      try {
+        const response = await login(user);
+        console.log(response);
 
-            if (response) {
-                navigate('/dashboard');
+        setIsAuthenticated(false);
 
-                Auth.setUser({
-                    nom: 'nom',
-                    prenom: 'prenom',
-                    email: 'email',
-                });
-            }
-        } catch (error) {
-            console.log(error);
+        if (response) {
+          navigate('/dashboard');
+          setIsAuthenticated(true);
         }
+      } catch (error) {
+        Auth.setUser({
+          email: user.email,
+          nom: '',
+          prenom: '',
+        });
+      }
     }, 2000);
-};
-
+  };
 
   return (
     <div className="bg-[#E8E4D9] h-full  md:border-r border-red-700 shadow-2xl  lg:shadow-none  lg:rounded-bl-xl lg:rounded-tl-xl connect">
@@ -115,7 +114,7 @@ const Login = () => {
                         : passVerifed === false
                         ? 'border-red-500 border-2'
                         : 'border-green-500 border-2'
-                        
+
                       // passVerifed === false
                       //   ? 'border-red-500 border-2'
                       //   : 'border-green-500 border-2'
@@ -152,6 +151,5 @@ const Login = () => {
     </div>
   );
 };
-
 
 export default Login;

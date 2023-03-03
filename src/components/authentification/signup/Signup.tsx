@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { register } from '../../../services/auth/AuthApi';
+// import { register } from '../../../services/auth/auth/AuthApi';
 import { AuthContext } from '../../context/Auth';
 import { Loading } from '../../modal/loadingModal/Loading';
 

@@ -2,8 +2,8 @@ export const ServiceData = [
   // defined serviceData with an array of objects
   { nom: 'Entretien au Domicile', type: 'Domicile' },
   { nom: 'Sortie', type: 'Domicile' },
-  { nom: 'Repassage', type: 'Domicile' },
   { nom: 'Déplacement au domicile', type: 'Domicile' },
+  { nom: 'Repassage', type: 'Domicile' },
   { nom: 'Surveillance', type: 'Domicile' },
   { nom: 'Aide au lever/coucher', type: 'Autonomie' },
   { nom: 'Préparation des repas', type: 'Autonomie' },
@@ -15,8 +15,8 @@ export const ServiceData = [
 export const serviceDataCheckboxItems = [
   { value: 'Entretien au Domicile', isChecked: false, type: 'Domicile' },
   { value: 'Sortie', isChecked: false, type: 'Domicile' },
-  { value: 'Repassage', isChecked: false, type: 'Domicile' },
   { value: 'Déplacement au domicile', isChecked: false, type: 'Domicile' },
+  { value: 'Repassage', isChecked: false, type: 'Domicile' },
   { value: 'Surveillance', isChecked: false, type: 'Domicile' },
   { value: 'Aide au lever/coucher', isChecked: false, type: 'Autonomie' },
   { value: 'Préparation des repas', isChecked: false, type: 'Autonomie' },
@@ -89,3 +89,11 @@ export const NosServicesData = [
     type: 'autonomie',
   },
 ];
+
+
+export function getSrcFromNomDesServices(nomDesServices: string) {
+  const service = NosServicesData.find(
+    (s) => s.nomDesServices === nomDesServices
+  );
+  return service ? service.src : null;
+}
